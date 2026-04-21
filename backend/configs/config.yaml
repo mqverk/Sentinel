@@ -1,0 +1,42 @@
+api:
+  listenAddr: ":8080"
+  readTimeout: 10s
+  writeTimeout: 20s
+  idleTimeout: 60s
+  corsOrigins:
+    - "http://localhost:5173"
+
+ssh:
+  listenAddr: ":2222"
+  hostKeyPath: "./configs/host_key"
+  banner: "Sentinel secure bastion"
+  maxAuthTries: 3
+  idleTimeout: 30m
+
+database:
+  driver: "sqlite"
+  dsn: "./sentinel.db"
+  maxOpenConns: 15
+  maxIdleConns: 5
+  connMaxLifetime: 30m
+
+auth:
+  jwtSecret: "change-me-now"
+  tokenTTL: 8h
+  passwordMinLength: 12
+
+security:
+  rateLimit:
+    requestsPerSecond: 25
+    burst: 50
+  allowedCIDRs: []
+  maxRequestBodyBytes: 1048576
+
+session:
+  recordingDir: "./recordings"
+  replayRetentionDays: 30
+
+plugins:
+  enabled:
+    - "stdout-audit"
+  webhookURL: ""
