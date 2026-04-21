@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Sora:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  @apply border-edge;
+}
+
+body {
+  @apply bg-bg text-text font-sans antialiased;
+  min-height: 100vh;
+  margin: 0;
+  background-image:
+    radial-gradient(circle at 12% 14%, rgba(79, 209, 197, 0.15), transparent 36%),
+    radial-gradient(circle at 84% 0%, rgba(56, 189, 248, 0.15), transparent 40%),
+    linear-gradient(180deg, #060a11 0%, #08111d 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(79, 209, 197, 0.35);
+}
